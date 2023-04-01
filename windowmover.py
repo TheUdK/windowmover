@@ -102,7 +102,7 @@ if __name__ == '__main__':
     # Set up the system tray icon
     icon_image = open_icon_image()
     menu = pystray.Menu(pystray.MenuItem('Quit', action=on_quit))
-    tray = pystray.Icon('Window Positioner', icon_image, 'Window Positioner', menu)
+    tray = pystray.Icon('WindowMover', icon_image, 'WindowMover', menu)
 
     # Start the continuous window updating in a separate thread
     updater_thread = threading.Thread(target=continuously_update_windows, args=(windows, exe_path))
