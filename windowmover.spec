@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['default_pos_loop.py'],
+    ['windowmover.py'],
     pathex=[],
     binaries=[],
     datas=[('./bin/GUIPropView.exe', 'bin'), ('icon.ico', '.')],
