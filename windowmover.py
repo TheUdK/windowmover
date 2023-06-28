@@ -16,14 +16,13 @@ import sys
 def construct_exe_path():
     """Constructs the path to the GUIPropView.exe executable."""
     exe_name = "GUIPropView.exe"
-    
+
     if getattr(sys, 'frozen', False):
         base_path = sys._MEIPASS
     else:
         base_path = os.path.dirname(os.path.abspath(__file__))
-    
-    exe_path = os.path.join(base_path, 'bin', exe_name)
-    return exe_path
+
+    return os.path.join(base_path, 'bin', exe_name)
 
 
 def read_window_positions():
@@ -31,7 +30,7 @@ def read_window_positions():
     filename = os.path.join(os.getcwd(), 'config.csv')
     with open(filename) as f:
         reader = csv.reader(f)
-        windows = [row for row in reader]
+        windows = list(reader)
     return windows
 
 
@@ -82,15 +81,14 @@ def continuously_update_windows(windows, exe_path):
 def open_icon_image():
     """Opens the icon image file."""
     image_name = "icon.ico"
-    
+
     if getattr(sys, 'frozen', False):
         base_path = sys._MEIPASS
     else:
         base_path = os.path.dirname(os.path.abspath(__file__))
-    
+
     image_path = os.path.join(base_path, image_name)
-    icon_image = Image.open(image_path)
-    return icon_image
+    return Image.open(image_path)
 
 if __name__ == '__main__':
     # Construct the path to the executable file
